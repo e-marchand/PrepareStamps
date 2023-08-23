@@ -1,0 +1,19 @@
+{
+	"error": {
+		"methods": [
+			"err_CAPTURE",
+			"err_CATCH",
+			"err_COMBINE",
+			"err_Continue",
+			"err_FINALLY",
+			"err_HIDE",
+			"err_PUSH",
+			"err_THROW",
+			"err_TRY"
+		],
+		"classes": [
+			"error"
+		]
+	},
+	"trash": {}
+}
