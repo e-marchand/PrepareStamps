@@ -6,7 +6,17 @@
 
 By adding a `__GlobalStamp` field to a table, when a record is created or updated, it's `__GlobalStamp` field value will be set to the value of an auto incremental stamp global to the database.
 
-So you could using ORDA query or REST ($filter) on each tables to get the data changes since a previous value of global stamp.
+```
+example:
+you create a Company C record: global stamp 1
+you create an Employe A record: global stamp 2
+you change Employe A name: global stamp 3 (no more 2 for the record)
+you change a Company C record bale: global stamp 4
+you create an Employe B record: global stamp 5
+-> you have Company C with __GlobalStamps=4, Employe A with __GlobalStamp=3, Employe B with __GlobalStamp=5
+```
+
+So you could using ORDA query or REST ($filter) on each tables to get the data changes since a previous value of this global stamp.
 For instance the filter used to request the data could be `__GlobalStamp > 42`
 
 To track deleted records, records that could no more view in tables, we need a cemetery that contains all table id/names and primary key values of deleted records.
