@@ -1,4 +1,16 @@
-# PrepareStamps
+# Prepare Stamps
+
+... for tracking data changes
+
+## trackin data changes?
+
+By adding a `__GlobalStamp` field to a table, when a record is create or updated, it's `__GlobalStamp` field value will set with the value of an auto incremental stamp global to the database.
+
+So you could using ORDA query or REST ($filter) on each tables to get the data changes since a previous value of global stamp.
+For instance the filter used to request the data could be `__GlobalStamp > 42`
+
+To track deleted records, records that could no more view in tables, we need a cemetery that contains all table id/names and primary key values of deleted records.
+We create a table named `__DeletedRecords` , that could be consulted like any other tables, here using `__Stamp` if we want to see new deleted records since a previous value of global stamp.
 
 ## Setup
  First create an instance 
